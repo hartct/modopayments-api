@@ -19,7 +19,7 @@ module ModoPayments
         uri = URI.parse("#{ModoPayments::API.configuration.modo_url}/token?credentials=#{encoded_credential}")
         http = Net::HTTP.new(uri.host, uri.port)
         http.use_ssl = true
-        http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+        http.verify_mode = OpenSSL::SSL::VERIFY_PEER
         response = Net::HTTP.post_form(uri, 'credentials' => encoded_credential)
         response_json = JSON.parse(response.body)
         if response_json["status_code"] == 0
@@ -34,14 +34,22 @@ module ModoPayments
 
       def merchant_list
         uri = URI.parse("#{ModoPayments::API.configuration.modo_url}/merchant/list")
+        response_json = post_with_access_token(uri)
+      end
+
+      private
+      def post_with_access_token(uri)
         http = Net::HTTP.new(uri.host, uri.port)
         http.use_ssl = true
-        http.verify_mode = OpenSSL::SSL::VERIFY_NONE
-        self.login
+        http.verify_mode = OpenSSL::SSL::VERIFY_PEER
+        self.login if @access_token.nil?
         puts "using @access_token = #{@access_token}"
         response = Net::HTTP.post_form(uri, 'consumer_key' => "Modo", 'access_token' => @access_token)
         puts "response = #{response.body}"
-        #response_json = JSON.parse(response.body)
+        response_json = JSON.parse(response.body)
+      end
+
+      def access_token_expired?
 
       end
     end

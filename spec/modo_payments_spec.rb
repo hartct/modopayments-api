@@ -20,7 +20,7 @@ describe ModoPayments do
       expect(client.login).to eq(true)
     end
 
-    it 'should fail loggingin with bad credentials' do
+    it 'should fail logging in with bad credentials' do
       client = ModoPayments::API::Client.new
       expect(client.login("x","x")).to eq(false)
     end
@@ -36,6 +36,16 @@ describe ModoPayments do
       client = ModoPayments::API::Client.new
       response = client.register_person({"phone" => "9802535050"})
       expect(response["status_code"]).to eq(0)
+    end
+
+    it 'should register a person and get the person\'s profile' do
+      client = ModoPayments::API::Client.new
+      response = client.register_person({"phone" => "9802535050", "fname" => "xyz", "lname" => "abc"})
+      expect(response["status_code"]).to eq(0)
+      account_id = response["response_data"]["account_id"]
+      response2 = client.get_person(account_id)
+      expect(response2["status_code"]).to eq(0)
+      expect(response2["response_data"]["last_name"]).to eq("abc")
     end
 
     #TODO: There is probably a better way to test this combination

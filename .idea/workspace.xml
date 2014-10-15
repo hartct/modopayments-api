@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="8026839e-b4ab-4cae-bbc9-c6b740123664" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modo_payments/api/client.rb" afterPath="$PROJECT_DIR$/lib/modo_payments/api/client.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modo_payments/api/configuration.rb" afterPath="$PROJECT_DIR$/lib/modo_payments/api/configuration.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spec/modo_payments_spec.rb" afterPath="$PROJECT_DIR$/spec/modo_payments_spec.rb" />
     </list>
     <ignored path="modopayments-api.iws" />
@@ -59,8 +58,8 @@
       <file leaf-file-name="client.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/modo_payments/api/client.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="266" max-vertical-offset="1350">
-              <caret line="56" column="0" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="356" max-vertical-offset="1440">
+              <caret line="46" column="83" selection-start-line="46" selection-start-column="83" selection-end-line="46" selection-end-column="83" />
               <folding />
             </state>
           </provider>
@@ -99,8 +98,8 @@
       <file leaf-file-name="modo_payments_spec.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/spec/modo_payments_spec.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.51417005" vertical-offset="309" max-vertical-offset="1050">
-              <caret line="46" column="143" selection-start-line="46" selection-start-column="143" selection-end-line="46" selection-end-column="143" />
+            <state vertical-scroll-proportion="0.3319838" vertical-offset="384" max-vertical-offset="1200">
+              <caret line="42" column="102" selection-start-line="42" selection-start-column="102" selection-end-line="42" selection-end-column="102" />
               <folding />
             </state>
           </provider>
@@ -489,16 +488,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/modo_payments/api/client.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="71" max-vertical-offset="1350">
-          <caret line="56" column="0" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="356" max-vertical-offset="1440">
+          <caret line="46" column="83" selection-start-line="46" selection-start-column="83" selection-end-line="46" selection-end-column="83" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/spec/modo_payments_spec.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.51417005" vertical-offset="309" max-vertical-offset="1050">
-          <caret line="46" column="143" selection-start-line="46" selection-start-column="143" selection-end-line="46" selection-end-column="143" />
+        <state vertical-scroll-proportion="0.3319838" vertical-offset="384" max-vertical-offset="1200">
+          <caret line="42" column="102" selection-start-line="42" selection-start-column="102" selection-end-line="42" selection-end-column="102" />
           <folding />
         </state>
       </provider>

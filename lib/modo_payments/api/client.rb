@@ -43,13 +43,19 @@ module ModoPayments
         response_json
       end
 
-      def add_card(params={})
+      def get_person(account_id)
+        uri = URI.parse("#{ModoPayments::API.configuration.modo_url}/people/profile")
+        response_json = post_with_access_token(uri, {"account_id" => account_id})
+        response_json
+      end
+
+      def add_card(params)
         uri = URI.parse("#{ModoPayments::API.configuration.modo_url}/card/add")
         response_json = post_with_access_token(uri, params)
         response_json
       end
 
-      def send_gift(params={})
+      def send_gift(params)
         uri = URI.parse("#{ModoPayments::API.configuration.modo_url}/gift/send")
         response_json = post_with_access_token(uri, params)
         response_json

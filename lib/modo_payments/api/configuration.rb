@@ -1,6 +1,6 @@
 module ModoPayments
   class Configuration
-    attr_accessor :api_key, :api_secret, :test_mode, :modo_base_url, :access_token_timeout_minutes
+    attr_accessor :api_key, :api_secret, :test_mode, :modo_base_url, :access_token_timeout_seconds
 
     def initialize
 

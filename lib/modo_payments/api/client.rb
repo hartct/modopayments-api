@@ -31,27 +31,54 @@ module ModoPayments
         end
       end
 
-
       def merchant_list
         uri = URI.parse("#{ModoPayments::API.configuration.modo_url}/merchant/list")
         response_json = post_with_access_token(uri)
+        response_json
+      end
+
+      def register_person(params={})
+        uri = URI.parse("#{ModoPayments::API.configuration.modo_url}/people/register")
+        response_json = post_with_access_token(uri, params)
+        response_json
+      end
+
+      def add_card(params={})
+        uri = URI.parse("#{ModoPayments::API.configuration.modo_url}/card/add")
+        response_json = post_with_access_token(uri, params)
+        response_json
+      end
+
+      def send_gift(params={})
+        uri = URI.parse("#{ModoPayments::API.configuration.modo_url}/gift/send")
+        response_json = post_with_access_token(uri, params)
+        response_json
       end
 
       private
-      def post_with_access_token(uri)
+      def post_with_access_token(uri, post_data={})
         http = Net::HTTP.new(uri.host, uri.port)
         http.use_ssl = true
         http.verify_mode = OpenSSL::SSL::VERIFY_PEER
-        self.login if @access_token.nil?
-        puts "using @access_token = #{@access_token}"
-        response = Net::HTTP.post_form(uri, 'consumer_key' => "Modo", 'access_token' => @access_token)
-        puts "response = #{response.body}"
-        response_json = JSON.parse(response.body)
+        self.login if @access_token.nil? || access_token_expired?
+        if @access_token && !access_token_expired?
+          response = Net::HTTP.post_form(uri, post_data.merge('consumer_key' => "Modo", 'access_token' => @access_token) )
+          response_json = JSON.parse(response.body)
+          response_json
+        else
+          false
+        end
       end
 
       def access_token_expired?
-
+        if @access_token_created_at && ModoPayments::API.configuration.access_token_timeout_seconds &&
+            (Time.now - @access_token_created_at) > access_token_timeout_seconds
+          true
+        else
+          false
+        end
       end
+
     end
   end
 end

@@ -66,7 +66,7 @@ describe ModoPayments do
       account_id = response["response_data"]["account_id"]
       response2 = client.add_card({"account_id" => account_id, "card_number" => "5153648888888880", "expiry" => "1220", "zip_code" => "28210"})
       expect(response2["status_code"]).to eq(0)
-      response3 = client.send_gift({"account_id" => account_id, "gift_amount" => 50.00, "receiver_phone" => "9802535050"})
+      response3 = client.send_gift({"account_id" => account_id, "gift_amount" => 50.00, "receiver_phone" => "9802535050", "gift_details_url" => "http://test.com"})
       p response3
       expect(response3["status_code"]).to eq(0)
     end

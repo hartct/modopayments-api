@@ -7,7 +7,7 @@ module ModoPayments
     end
 
     def modo_url
-      "https://demo.modopayments.com/YiiModo/api_v2"
+      modo_base_url || "https://demo.modopayments.com/YiiModo/api_v2"
     end
   end
 end
